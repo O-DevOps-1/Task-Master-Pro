@@ -6,5 +6,4 @@ const limiter = rateLimit({
   message: 'Too many requests, please try again later.',
 });
 
-
 module.exports = limiter;
