@@ -37,4 +37,19 @@ exports.deleteTask = async (req, res) => {
     if (!task) return res.status(404).json({ message: 'Task not found' });
     res.json({ message: 'Task deleted' });
   } catch (error) {
-    res.status(500).json({ message: error.message });}};
+    res.status(500).json({ message: error.message });}}; 
+
+const io = require('../server').io;
+
+exports.updateTask = async (req, res) => {
+  try {
+    const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!task) return res.status(404).json({ message: 'Task not found' });
+
+    io.emit('taskUpdated', task);  // broadcsst update to all connected clients
+    res.json(task);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
