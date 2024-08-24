@@ -23,11 +23,11 @@ chrome.alarms.onAlarm.addListener(alarm => {
 });
 
 function checkTasksForReminders() {
-  // Fetch tasks and check deadlines, sending notifications accordingly
+  // fetching tasks and check deadlines, sending notifications accordingly
   console.log("Checking tasks for upcoming deadlines...");
 }
 
-// Sync tasks with Google Calendar
+// sync tasks with Google Calendar
 function syncTasksWithGoogleCalendar() {
   chrome.storage.sync.get(['googleAuthToken'], (result) => {
     const token = result.googleAuthToken;
@@ -37,6 +37,7 @@ function syncTasksWithGoogleCalendar() {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
+          
         },
         body: JSON.stringify({
           summary: 'Task from Task Manager Extension',
