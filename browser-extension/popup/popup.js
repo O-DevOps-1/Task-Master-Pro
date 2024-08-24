@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   const taskList = document.getElementById('taskList');
   const addTaskBtn = document.getElementById('addTaskBtn');
+  const syncCalendarBtn = document.getElementById('syncCalendarBtn');
   const toggleDarkModeBtn = document.getElementById('toggle-dark-mode');
 
-  // fetch tasks from the API!
   async function fetchTasks() {
     try {
       const response = await fetch('http://localhost:5000/api/tasks', {
@@ -17,22 +17,27 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error fetching tasks:', error);
     }}
 
+  
   function displayTasks(tasks) {
     taskList.innerHTML = '';
     tasks.forEach(task => {
       const taskItem = document.createElement('div');
       taskItem.textContent = task.title;
       taskItem.classList.add('task-item');
-      taskList.appendChild(taskItem); });
+      taskList.appendChild(taskItem);
+    });
 
-    enableDragAndDrop();
-  }
+    enableDragAndDrop(); }
 
   addTaskBtn.addEventListener('click', function () {
     const taskTitle = prompt('Enter task title:');
     if (taskTitle) {
       createTask(taskTitle);
     }
+  });
+
+  syncCalendarBtn.addEventListener('click', function () {
+    syncTasksWithGoogleCalendar();
   });
 
   async function createTask(title) {
@@ -82,10 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const draggedTaskTitle = e.dataTransfer.getData('text/plain');
     const targetTask = e.target.textContent;
 
-    // handle task reordering logic here
-    console.log(`Reordered task: ${draggedTaskTitle} before ${targetTask}`);
-  }
+    console.log(`Reordered task: ${draggedTaskTitle} before ${targetTask}`); }
 
-  // initialing fetch of tasks
   fetchTasks();
 });
