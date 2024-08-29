@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="/admin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMasterPro Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-  <div class="header">
-    <h1>Admin Dashboard</h1>
-    <button id="toggle-theme">Toggle Theme</button>
-  </div>
-  <div class="container">
-    <div class="card">
-      <h2>Task Completion</h2>
-      <div class="chart">
-        <canvas id="taskCompletionChart"></canvas>
+    <div class="header">
+        <h1>Admin Dashboard</h1>
+        <button id="toggle-theme">Toggle Theme</button>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Task Completion</h2>
+            <div class="chart">
+            <canvas id="taskCompletionChart"></canvas>
+            </div>
       </div>
+      <div class="card">
+            <h2>Project Progress</h2>
+            <div class="chart">
+                <canvas id="projectProgressChart"></canvas>
+            </div>
+      </div>
+      <div class="card">
+            <h2>User Activity</h2>
+            <p>User activity data will go here.</p>
+        </div>
     </div>
-    <div class="card">
-      <h2>Project Progress</h2>
-      <p>Project progress data will go here.</p>
-    </div>
-    <div class="card">
-      <h2>User Activity</h2>
-      <p>User activity data will go here.</p>
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="/admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin.js"></script>
 </body>
 </html>
