@@ -1,0 +1,13 @@
+<div id="bot">
+  <div id="bot-header">
+    <h4>TaskMasterPro Bot</h4>
+  </div>
+  <div id="bot-content">
+    <p>Hi! How can I assist you today?</p>
+  </div>
+  <div id="bot-input">
+    <input type="text" id="bot-message" placeholder="Type a message...">
+    <button id="bot-send">Send</button> 
+  
+</div>
+</div>
